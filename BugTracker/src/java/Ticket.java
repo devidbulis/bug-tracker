@@ -1,21 +1,29 @@
+
+import java.util.ArrayList;
+
 public class Ticket {
     
     private int num;
-    private String name;
+    private String title;
     private String description;
     private Project project;
+    private Submitter submitter;
     private Developer assignedDev;
     private String priority = "None";
     private String status = "New";
     private String type;
     private Long createdDateTime;
     private Long updatedDateTime;
+    private ArrayList<Attachment> attachments;
+    private ArrayList<Comment> comments;
+    private ArrayList<TicketLog> log;
     
-    public Ticket(int num, String name, String description, Project project, Developer assignedDev, String type){
+    public Ticket(int num, String title, String description, Project project, Submitter submitter, Developer assignedDev, String type){
         this.num = num;
-        this.name = name;
+        this.title = title;
         this.description = description;
         this.project = project;
+        this.submitter = submitter;
         this.assignedDev = assignedDev;
         this.type = type;
         this.createdDateTime = System.currentTimeMillis();
@@ -29,12 +37,12 @@ public class Ticket {
         this.num = num;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String name) {
+        this.title = title;
     }
 
     public String getDescription() {
@@ -99,5 +107,37 @@ public class Ticket {
 
     public void setUpdatedDateTime(Long updatedDateTime) {
         this.updatedDateTime = updatedDateTime;
+    }
+
+    public Submitter getSubmitter() {
+        return submitter;
+    }
+
+    public void setSubmitter(Submitter submitter) {
+        this.submitter = submitter;
+    }
+
+    public ArrayList<Attachment> getAttachments() {
+        return attachments;
+    }
+
+    public void setAttachments(ArrayList<Attachment> attachments) {
+        this.attachments = attachments;
+    }
+
+    public ArrayList<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(ArrayList<Comment> comments) {
+        this.comments = comments;
+    }
+
+    public ArrayList<TicketLog> getLog() {
+        return log;
+    }
+
+    public void setLog(ArrayList<TicketLog> log) {
+        this.log = log;
     }
 }
