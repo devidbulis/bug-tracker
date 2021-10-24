@@ -1,7 +1,7 @@
-Sun Oct 24 18:13:18 BST 2021 : Apache Derby Network Server - 10.14.2.0 - (1828579) started and ready to accept connections on port 1527
+Sun Oct 24 19:02:16 BST 2021 : Apache Derby Network Server - 10.14.2.0 - (1828579) started and ready to accept connections on port 1527
 ----------------------------------------------------------------
-Sun Oct 24 18:13:18 BST 2021:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-017c-b34a-d4bb-000025ed933a 
+Sun Oct 24 19:02:16 BST 2021:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-017c-b377-a829-000025ed933a 
 on database directory D:\Projects\bug-tracker\BugTracker\DataBase\bug-tracker-db with class loader sun.misc.Launcher$AppClassLoader@1d44bcfa 
 Loaded from file:/C:/Users/Devid/GlassFish_Server/javadb/lib/derby.jar
 java.vendor=Oracle Corporation
@@ -13,19 +13,4 @@ os.version=10.0
 derby.system.home=D:\Projects\bug-tracker\BugTracker\DataBase
 Database Class Loader started - derby.database.classpath=''
 ----------------------------------------------------------------
-Sun Oct 24 18:13:23 BST 2021:
-Shutting down instance a816c00e-017c-b34a-d4bb-000025ed933a on database directory D:\Projects\bug-tracker\BugTracker\DataBase\bug-tracker-db with class loader sun.misc.Launcher$AppClassLoader@1d44bcfa 
-Sun Oct 24 18:13:23 BST 2021 Thread[DRDAConnThread_3,5,main] (DATABASE = bug-tracker-db), (DRDAID = {2}), Database 'bug-tracker-db' shutdown.
-----------------------------------------------------------------
-Sun Oct 24 18:14:48 BST 2021:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance 6ede40af-017c-b34a-d4bb-000025ed933a 
-on database directory D:\Projects\bug-tracker\BugTracker\DataBase\bug-tracker-db with class loader sun.misc.Launcher$AppClassLoader@1d44bcfa 
-Loaded from file:/C:/Users/Devid/GlassFish_Server/javadb/lib/derby.jar
-java.vendor=Oracle Corporation
-java.runtime.version=1.8.0_301-b09
-user.dir=C:\Users\Devid\GlassFish_Server\javadb
-os.name=Windows 10
-os.arch=amd64
-os.version=10.0
-derby.system.home=D:\Projects\bug-tracker\BugTracker\DataBase
-Database Class Loader started - derby.database.classpath=''
+Sun Oct 24 19:55:29 BST 2021: Shutting down Derby engine
