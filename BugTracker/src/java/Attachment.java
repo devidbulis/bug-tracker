@@ -1,25 +1,25 @@
 public class Attachment {
     
-    private int num;
+    private int id;
     private String fileName;
     private User uploader;
     private String notes;
     private Long createdDateTime;
     
-    public Attachment(int num, String fileName, User uploader, String notes){
-        this.num = num;
+    public Attachment(int id, String fileName, User uploader, String notes){
+        this.id = id;
         this.fileName = fileName;
         this.uploader = uploader;
         this.notes = notes;
         this.createdDateTime = System.currentTimeMillis();
     }
 
-    public int getNum() {
-        return num;
+    public int getID() {
+        return id;
     }
 
-    public void setNum(int num) {
-        this.num = num;
+    public void setID(int id) {
+        this.id = id;
     }
 
     public String getFileName() {

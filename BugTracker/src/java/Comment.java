@@ -1,23 +1,23 @@
 public class Comment {
     
-    private int num;
+    private int id;
     private String text;
     private User commenter;
     private Long createdDateTime;
     
-    public Comment(String text, User commenter){
-        this.num = num;
+    public Comment(int id, String text, User commenter){
+        this.id = id;
         this.text = text;
         this.commenter = commenter;
         this.createdDateTime = System.currentTimeMillis();
     }
 
-    public int getNum() {
-        return num;
+    public int getID() {
+        return id;
     }
 
-    public void setNum(int num) {
-        this.num = num;
+    public void setID(int id) {
+        this.id = id;
     }
 
     public String getText() {

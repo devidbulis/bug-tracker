@@ -1,14 +1,14 @@
 public class TicketLog {
     
-    private int num;
+    private int id;
     private Ticket ticket;
     private String property;
     private String oldValue;
     private String newValue;
     private Long changedDateTime;
     
-    public TicketLog(int num, Ticket ticket, String property, String oldValue, String newValue){
-        this.num = num;
+    public TicketLog(int id, Ticket ticket, String property, String oldValue, String newValue){
+        this.id = id;
         this.ticket = ticket;
         this.property = property;
         this.oldValue = oldValue;
@@ -16,12 +16,12 @@ public class TicketLog {
         this.changedDateTime = System.currentTimeMillis();
     }
 
-    public int getNum() {
-        return num;
+    public int getID() {
+        return id;
     }
 
-    public void setNum(int num) {
-        this.num = num;
+    public void setID(int id) {
+        this.id = id;
     }
 
     public Ticket getTicket() {

@@ -1,24 +1,24 @@
 public class Project {
     
-    private int num;
+    private int id;
     private String name;
     private String description;
     private User[] Staff;
     private Ticket[] Tickets;
     
     
-    public Project(int num, String name, String description) {
-        this.num = num;
+    public Project(int id, String name, String description) {
+        this.id = id;
         this.name = name;
         this.description = description;
     }
 
-    public int getNum() {
-        return num;
+    public int getID() {
+        return id;
     }
 
-    public void setNum(int num) {
-        this.num = num;
+    public void setID(int id) {
+        this.id = id;
     }
 
     public String getName() {
