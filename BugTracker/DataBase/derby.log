@@ -1,7 +1,7 @@
-Sun Oct 24 19:02:16 BST 2021 : Apache Derby Network Server - 10.14.2.0 - (1828579) started and ready to accept connections on port 1527
+Tue Oct 26 22:49:41 BST 2021 : Apache Derby Network Server - 10.14.2.0 - (1828579) started and ready to accept connections on port 1527
 ----------------------------------------------------------------
-Sun Oct 24 19:02:16 BST 2021:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-017c-b377-a829-000025ed933a 
+Tue Oct 26 22:49:41 BST 2021:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-017c-be94-969b-000025ed933a 
 on database directory D:\Projects\bug-tracker\BugTracker\DataBase\bug-tracker-db with class loader sun.misc.Launcher$AppClassLoader@1d44bcfa 
 Loaded from file:/C:/Users/Devid/GlassFish_Server/javadb/lib/derby.jar
 java.vendor=Oracle Corporation
@@ -12,5 +12,3 @@ os.arch=amd64
 os.version=10.0
 derby.system.home=D:\Projects\bug-tracker\BugTracker\DataBase
 Database Class Loader started - derby.database.classpath=''
-----------------------------------------------------------------
-Sun Oct 24 19:55:29 BST 2021: Shutting down Derby engine
