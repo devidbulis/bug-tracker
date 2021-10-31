@@ -11,8 +11,8 @@ public class DatabaseManager {
     {
         try
         {
-            Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-            return DriverManager.getConnection("jdbc:mysql://localhost/bug_tracker_db?user=root");
+            DriverManager.registerDriver(new org.apache.derby.jdbc.ClientDriver());
+            return DriverManager.getConnection("jdbc:derby://localhost:1527/bugTrackerDB", "bug123", "bug123");
         }
         catch (SQLException e)
         {
