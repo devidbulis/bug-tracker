@@ -33,6 +33,6 @@ public class User implements Serializable
     {
         this.email = "";
         this.loggedIn = false;
-        return "/index";
+        return "/index?faces-redirect=true";
     }
 }

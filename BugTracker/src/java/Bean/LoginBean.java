@@ -2,14 +2,16 @@ package Bean;
 
 import dbase.UserGateway;
 import javax.inject.Named;
-import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import Bean.User;
+import java.io.Serializable;
 import util.StringHasher;
 
+
 @Named(value = "login")
-@RequestScoped
-public class LoginBean
+@SessionScoped
+public class LoginBean implements Serializable
 {
 
     @Inject
@@ -21,9 +23,16 @@ public class LoginBean
     @Inject
     User user;
     
+    private String name;
     private String email;
     private String password;
     private String hashedPassword;
+    private String role;
+    private String id;
+
+    public String getName() {
+        return name;
+    }
 
     public String getEmail()
     {
@@ -35,6 +44,14 @@ public class LoginBean
         return password;
     }
 
+    public String getRole() {
+        return role;
+    }
+
+    public String getId() {
+        return id;
+    }
+    
     public void setEmail(String email)
     {
         this.email = email;
@@ -52,6 +69,9 @@ public class LoginBean
         if (userGateway.credentialsAreOK(email, hashedPassword))
         {
             user.logIn(email);
+            name = userGateway.getUserName(email);
+            role = userGateway.getUserRole(email);
+            id = userGateway.getUserId(email);
             return "secure/main?faces-redirect=true";
         }
         else
