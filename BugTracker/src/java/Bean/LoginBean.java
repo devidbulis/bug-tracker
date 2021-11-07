@@ -1,10 +1,11 @@
 package Bean;
 
 import dbase.UserGateway;
+import facade.UserFacade;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
-import Bean.User;
+import Bean.CurrentUser;
 import java.io.Serializable;
 import util.StringHasher;
 
@@ -21,7 +22,7 @@ public class LoginBean implements Serializable
     private StringHasher hasher;
     
     @Inject
-    User user;
+    CurrentUser user;
     
     private String name;
     private String email;
@@ -29,6 +30,8 @@ public class LoginBean implements Serializable
     private String hashedPassword;
     private String role;
     private String id;
+    
+    private UserFacade userFacade = new UserFacade();
 
     public String getName() {
         return name;
@@ -69,9 +72,9 @@ public class LoginBean implements Serializable
         if (userGateway.credentialsAreOK(email, hashedPassword))
         {
             user.logIn(email);
-            name = userGateway.getUserName(email);
-            role = userGateway.getUserRole(email);
-            id = userGateway.getUserId(email);
+            name = userFacade.getUser(email).getName();
+            role = userFacade.getUser(email).getRole();
+            id = Integer.toString(userFacade.getUser(email).getId());
             return "secure/main?faces-redirect=true";
         }
         else

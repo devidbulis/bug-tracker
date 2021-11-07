@@ -11,7 +11,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import Bean.User;
+import Bean.CurrentUser;
 
 
 @WebFilter(filterName = "CheckLoggedIn", urlPatterns =
@@ -21,7 +21,7 @@ import Bean.User;
 public class CheckLoggedIn implements Filter
 {
     @Inject
-    private User user;
+    private CurrentUser user;
     
     private FilterConfig filterConfig = null;
     

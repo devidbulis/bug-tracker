@@ -1,8 +1,11 @@
 package dbase;
 
+import dto.UserDTO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.inject.Named;
@@ -73,40 +76,41 @@ public class UserGateway extends DatabaseManager
         }
         catch (Exception e)
         {
-            Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, "User could not be registered", e);
+            e.printStackTrace();
             return false;
         }
     }
-    public String getUserName(String email)
+    public ArrayList<UserDTO> getAllUsers()
     {
+        ArrayList<UserDTO> users = new ArrayList<>();
+        
         try
         {
-            Connection con = getConnection();
-
-            PreparedStatement stmt = con.prepareStatement("SELECT * FROM Users " + "WHERE email = ?");
-
-            stmt.setString(1, email);
-
+            Connection conn = getConnection();
+            PreparedStatement stmt = conn.prepareStatement("SELECT * FROM Users ORDER BY USER_ID");
+            
             ResultSet rs = stmt.executeQuery();
-            String userName = "Name";
-            if (rs.next())
+            
+            while (rs.next())
             {
-                userName = rs.getString("name");
+                users.add(new UserDTO(rs.getInt("USER_ID"), rs.getString("NAME"),rs.getString("EMAIL"),rs.getString("ROLE"),rs.getString("PASSWORD")));
             }
             
             rs.close();
             stmt.close();
-            con.close();
-            return userName;
+            conn.close();
         }
-        catch (Exception e)
+        catch (SQLException e)
         {
-            Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, "User credentials could not be found", e);
-            return "Error";
+            e.printStackTrace();
+            return new ArrayList<UserDTO>();
         }
+        
+        return users;
     }
-    public String getUserRole(String email)
+    public UserDTO getUser(String email)
     {
+        UserDTO user = null;
         try
         {
             Connection con = getConnection();
@@ -116,49 +120,20 @@ public class UserGateway extends DatabaseManager
             stmt.setString(1, email);
 
             ResultSet rs = stmt.executeQuery();
-            String userRole = "None";
             if (rs.next())
             {
-                userRole = rs.getString("role");
+                user = new UserDTO(rs.getInt("USER_ID"), rs.getString("NAME"),rs.getString("EMAIL"),rs.getString("ROLE"),rs.getString("PASSWORD"));
             }
             
             rs.close();
             stmt.close();
             con.close();
-            return userRole;
+            return user;
         }
         catch (Exception e)
         {
-            Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, "User credentials could not be found", e);
-            return "Error";
-        }
-    }
-    public String getUserId(String email)
-    {
-        try
-        {
-            Connection con = getConnection();
-
-            PreparedStatement stmt = con.prepareStatement("SELECT * FROM Users " + "WHERE email = ?");
-
-            stmt.setString(1, email);
-
-            ResultSet rs = stmt.executeQuery();
-            String userID = "Unknown";
-            if (rs.next())
-            {
-                userID = rs.getString("user_id");
-            }
-            
-            rs.close();
-            stmt.close();
-            con.close();
-            return userID.toString();
-        }
-        catch (Exception e)
-        {
-            Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, "User credentials could not be found", e);
-            return "Error";
+            e.printStackTrace();
+            return user;
         }
     }
 }

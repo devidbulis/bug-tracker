@@ -7,7 +7,7 @@ import java.io.Serializable;
 
 @Named(value = "user")
 @SessionScoped
-public class User implements Serializable
+public class CurrentUser implements Serializable
 {
     private String email;
     

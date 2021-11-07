@@ -1,7 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
     <h:head>
         <link rel="stylesheet" href="style.css" />
         <title>Bug Tracker</title>
@@ -13,12 +14,33 @@
         <h2>Email: #{login.getEmail()}</h2>
         <h2>Role: #{login.getRole()}</h2>
         <h2>User ID: ##{login.getId()}</h2>
+        <h3>User Table</h3>
+        
+        <h:dataTable value="#{userBB.users}" var="u" >
+            <h:column>
+                <f:facet name="header">Id</f:facet>
+                <h:outputText value="#{u.id}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Name</f:facet>
+                <h:outputText value="#{u.name}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Email</f:facet>
+                <h:outputText value="#{u.email}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Role</f:facet>
+                <h:outputText value="#{u.role}" />
+            </h:column>
+        </h:dataTable>
         <p>Main info, panels and stuff</p>
         <h:form>
-        <h:commandButton type="submit" 
+            <h:commandButton type="submit" 
                              value="Logout" 
                              action="#{user.logOut()}" />
         </h:form>
+        <script src="main.js" />
     </h:body>
 </html>
 

@@ -1,6 +1,6 @@
 package Bean;
 
-import dbase.UserGateway;
+import facade.UserFacade;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -12,10 +12,9 @@ public class RegisterBean
 {
 
     @Inject
-    private UserGateway userGateway;
-    
-    @Inject
     private StringHasher hasher;
+    
+    private UserFacade userFacade = new UserFacade();
 
     private String name;
     private String email;
@@ -51,7 +50,7 @@ public class RegisterBean
 
     public String registerUser()
     {
-        if (userGateway.insertUser(name, email, hashedPassword))
+        if (userFacade.addUser(name, email, hashedPassword))
         {
             return "index?faces-redirect=true";
         }
