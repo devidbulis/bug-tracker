@@ -9,11 +9,11 @@ public class AttachmentDTO implements Serializable
     private int id;
     private String name;
     private String notes;
-    private long uploadedDateTime;
+    private String uploadedDateTime;
     private int projectId;
     private int userId;
 
-    public AttachmentDTO(int id, String name,String notes,long uploadedDateTime,int projectId,int userId)
+    public AttachmentDTO(int id, String name,String notes,String uploadedDateTime,int projectId,int userId)
     {
         this.id = id;
         this.name = name;
@@ -35,7 +35,7 @@ public class AttachmentDTO implements Serializable
         return notes;
     }
 
-    public long getUploadedDateTime() {
+    public String getUploadedDateTime() {
         return uploadedDateTime;
     }
 

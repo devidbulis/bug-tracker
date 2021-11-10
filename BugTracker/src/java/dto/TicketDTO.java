@@ -12,14 +12,14 @@ public class TicketDTO implements Serializable
     private String priority;
     private String status;
     private String type;
-    private long createdDateTime;
-    private long updatedDateTime;
+    private String createdDateTime;
+    private String updatedDateTime;
     private int projectId;
     private int assignedDevId;
     private int submitterId;
 
-    public TicketDTO(int id,String title,String description,String priority,String status,String type,long createdDateTime,
-            long updatedDateTime,int projectId,int assignedDevId,int submitterId)
+    public TicketDTO(int id,String title,String description,String priority,String status,String type,String createdDateTime,
+            String updatedDateTime,int projectId,int assignedDevId,int submitterId)
     {
         this.id = id;
         this.title = title;
@@ -58,11 +58,11 @@ public class TicketDTO implements Serializable
         return type;
     }
 
-    public long getCreatedDateTime() {
+    public String getCreatedDateTime() {
         return createdDateTime;
     }
 
-    public long getUpdatedDateTime() {
+    public String getUpdatedDateTime() {
         return updatedDateTime;
     }
 

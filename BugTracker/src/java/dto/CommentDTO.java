@@ -8,11 +8,11 @@ public class CommentDTO implements Serializable
 {
     private int id;
     private String text;
-    private long createdDateTime;
+    private String createdDateTime;
     private int projectId;
     private int commenterId;
 
-    public CommentDTO(int id, String name,long createdDateTime,int projectId,int commenterId)
+    public CommentDTO(int id, String name,String createdDateTime,int projectId,int commenterId)
     {
         this.id = id;
         this.text = text;
@@ -29,7 +29,7 @@ public class CommentDTO implements Serializable
         return text;
     }
 
-    public long getCreatedDateTime() {
+    public String getCreatedDateTime() {
         return createdDateTime;
     }
 

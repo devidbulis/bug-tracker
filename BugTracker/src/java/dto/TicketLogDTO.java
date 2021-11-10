@@ -10,11 +10,11 @@ public class TicketLogDTO implements Serializable
     private String property;
     private String oldValue;
     private String newValue;
-    private long changedDateTime;
+    private String changedDateTime;
     private int projectId;
     private int devId;
 
-    public TicketLogDTO(int id, String property,String oldValue,String newValue,long changedDateTime,int projectId,int devId)
+    public TicketLogDTO(int id, String property,String oldValue,String newValue,String changedDateTime,int projectId,int devId)
     {
         this.id = id;
         this.property = property;
@@ -41,7 +41,7 @@ public class TicketLogDTO implements Serializable
         return newValue;
     }
 
-    public long getChangedDateTime() {
+    public String getChangedDateTime() {
         return changedDateTime;
     }
 
