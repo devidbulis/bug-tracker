@@ -1,6 +1,6 @@
 package Bean;
 
-import facade.UserFacade;
+import BackingBean.UserBB;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -14,7 +14,7 @@ public class RegisterBean
     @Inject
     private StringHasher hasher;
     
-    private UserFacade userFacade = new UserFacade();
+    private UserBB userBB = new UserBB();
 
     private String name;
     private String email;
@@ -50,7 +50,7 @@ public class RegisterBean
 
     public String registerUser()
     {
-        if (userFacade.addUser(name, email, hashedPassword))
+        if (userBB.addUser(name, email, hashedPassword))
         {
             return "index?faces-redirect=true";
         }

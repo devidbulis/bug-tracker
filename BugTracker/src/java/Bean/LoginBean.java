@@ -1,7 +1,7 @@
 package Bean;
 
+import BackingBean.UserBB;
 import dbase.UserGateway;
-import facade.UserFacade;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
@@ -31,7 +31,7 @@ public class LoginBean implements Serializable
     private String role;
     private String id;
     
-    private UserFacade userFacade = new UserFacade();
+    private UserBB userBB = new UserBB();
 
     public String getName() {
         return name;
@@ -72,9 +72,9 @@ public class LoginBean implements Serializable
         if (userGateway.credentialsAreOK(email, hashedPassword))
         {
             user.logIn(email);
-            name = userFacade.getUser(email).getName();
-            role = userFacade.getUser(email).getRole();
-            id = Integer.toString(userFacade.getUser(email).getId());
+            name = userBB.getUser(email).getName();
+            role = userBB.getUser(email).getRole();
+            id = Integer.toString(userBB.getUser(email).getId());
             return "secure/main?faces-redirect=true";
         }
         else

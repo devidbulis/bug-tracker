@@ -1,7 +1,7 @@
-package Bean;
+package BackingBean;
 
 import dto.UserDTO;
-import facade.UserFacade;
+import facade.TableFacade;
 import java.util.ArrayList;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
@@ -12,7 +12,7 @@ import javax.enterprise.context.RequestScoped;
 public class UserBB
 {
 
-    private UserFacade userFacade = new UserFacade();
+    private TableFacade tableFacade = new TableFacade();
 
     private UserDTO user;
     private ArrayList<UserDTO> users = new ArrayList<>();
@@ -21,15 +21,18 @@ public class UserBB
     {
     }
 
+    public boolean addUser(String name,String email,String password){
+        return tableFacade.addUser(name, email, password);
+    }
     public UserDTO getUser(String email)
     {
-        user = userFacade.getUser(email);
+        user = tableFacade.getUser(email);
         return user;
     }
 
     public ArrayList<UserDTO> getUsers()
     {
-        users = userFacade.getAllUsers();
+        users = tableFacade.getAllUsers();
         return users;
     }
 }
