@@ -136,4 +136,33 @@ public class UserGateway extends DatabaseManager
             return user;
         }
     }
+    public boolean ChangeUserRole(String email,String role)
+    {
+        try
+        {
+            Connection con = getConnection();
+
+            PreparedStatement stmt
+                    = con.prepareStatement(
+                            "UPDATE Users SET ROLE=? WHERE EMAIL=?");
+
+            stmt.setString(1, role);
+            stmt.setString(2, email);
+
+            int rows = stmt.executeUpdate();
+
+            stmt.close();
+            con.close();
+            return true;
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public void changeUserRole(String email, String role) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

@@ -49,7 +49,19 @@ public class TableFacade
     {
         return userGateway.getUser(email);
     }
-    
+    public boolean changeUserRole(String email,String role)
+    {
+        UserDTO u = userGateway.getUser(email);
+        
+        if (u == null)
+        {
+            userGateway.changeUserRole(email,role);
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
     // Ticket Log
     public boolean addTicketLog(String property,String oldValue,String newValue,String changedDateTime,int projectId,int devId)
     {
