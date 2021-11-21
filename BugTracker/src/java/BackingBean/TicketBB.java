@@ -27,6 +27,9 @@ public class TicketBB
         return tableFacade.addTicket(title,description,priority,status,type,createdDateTime,
             updatedDateTime,projectId,assignedDevId,submitterId);
     }
+    public boolean changeTicketParameter(int ticketId,String parameter,String value){
+        return tableFacade.changeTicketParameter(ticketId,parameter,value);
+    }
     public TicketDTO getTicket(int ticketId)
     {
         ticket = tableFacade.getTicket(ticketId);

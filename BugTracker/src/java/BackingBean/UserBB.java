@@ -24,8 +24,8 @@ public class UserBB
     public boolean addUser(String name,String email,String password){
         return tableFacade.addUser(name, email, password);
     }
-    public boolean changeUserRole(String email,String role){
-        return tableFacade.changeUserRole(email, role);
+    public boolean changeUserParameter(String email,String parameter,String value){
+        return tableFacade.changeUserParameter(email,parameter,value);
     }
     public UserDTO getUser(String email)
     {

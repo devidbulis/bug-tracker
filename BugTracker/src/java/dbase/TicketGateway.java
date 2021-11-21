@@ -108,4 +108,30 @@ public class TicketGateway extends DatabaseManager
             return dto;
         }
     }
+    public boolean changeTicketParameter(int ticketId,String parameter,String value)
+    {
+        try
+        {
+            Connection con = getConnection();
+
+            PreparedStatement stmt
+                    = con.prepareStatement(
+                            "UPDATE TICKETS SET ?=? WHERE TICKET_ID=?");
+
+            stmt.setString(1, parameter);
+            stmt.setString(2, value);
+            stmt.setInt(3, ticketId);
+
+            int rows = stmt.executeUpdate();
+
+            stmt.close();
+            con.close();
+            return true;
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

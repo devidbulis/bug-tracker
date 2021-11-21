@@ -24,6 +24,9 @@ public class ProjectBB
     public boolean addProject(String name,String description){
         return tableFacade.addProject(name,description);
     }
+    public boolean changeProjectParameter(int projectId,String parameter,String value){
+        return tableFacade.changeProjectParameter(projectId,parameter,value);
+    }
     public ProjectDTO getProject(int projectId)
     {
         project = tableFacade.getProject(projectId);

@@ -136,7 +136,7 @@ public class UserGateway extends DatabaseManager
             return user;
         }
     }
-    public boolean ChangeUserRole(String email,String role)
+    public boolean changeUserParameter(String email,String parameter,String value)
     {
         try
         {
@@ -144,10 +144,11 @@ public class UserGateway extends DatabaseManager
 
             PreparedStatement stmt
                     = con.prepareStatement(
-                            "UPDATE Users SET ROLE=? WHERE EMAIL=?");
+                            "UPDATE Users SET ?=? WHERE EMAIL=?");
 
-            stmt.setString(1, role);
-            stmt.setString(2, email);
+            stmt.setString(1, parameter);
+            stmt.setString(2, value);
+            stmt.setString(3, email);
 
             int rows = stmt.executeUpdate();
 
@@ -160,9 +161,5 @@ public class UserGateway extends DatabaseManager
             e.printStackTrace();
             return false;
         }
-    }
-
-    public void changeUserRole(String email, String role) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

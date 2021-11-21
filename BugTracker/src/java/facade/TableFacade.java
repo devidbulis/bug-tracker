@@ -49,13 +49,13 @@ public class TableFacade
     {
         return userGateway.getUser(email);
     }
-    public boolean changeUserRole(String email,String role)
+    public boolean changeUserParameter(String email,String parameter,String value)
     {
         UserDTO u = userGateway.getUser(email);
         
-        if (u == null)
+        if (u != null)
         {
-            userGateway.changeUserRole(email,role);
+            userGateway.changeUserParameter(email,parameter,value);
             return true;
         }
         else{
@@ -91,6 +91,19 @@ public class TableFacade
     {
         return ticketGateway.getTicket(ticketId);
     }
+    public boolean changeTicketParameter(int ticketId,String parameter,String value)
+    {
+        TicketDTO t = ticketGateway.getTicket(ticketId);
+        
+        if (t != null)
+        {
+            ticketGateway.changeTicketParameter(ticketId,parameter,value);
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
     
     // Project
     public boolean addProject(String name,String description)
@@ -104,6 +117,19 @@ public class TableFacade
     public ProjectDTO getProject(int projectId)
     {
         return projectGateway.getProject(projectId);
+    }
+    public boolean changeProjectParameter(int projectId,String parameter,String value)
+    {
+        ProjectDTO p = projectGateway.getProject(projectId);
+        
+        if (p != null)
+        {
+            projectGateway.changeProjectParameter(projectId,parameter,value);
+            return true;
+        }
+        else{
+            return false;
+        }
     }
     
     // Comment

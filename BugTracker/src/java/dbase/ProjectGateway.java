@@ -95,4 +95,30 @@ public class ProjectGateway extends DatabaseManager
             return dto;
         }
     }
+    public boolean changeProjectParameter(int projectId,String parameter,String value)
+    {
+        try
+        {
+            Connection con = getConnection();
+
+            PreparedStatement stmt
+                    = con.prepareStatement(
+                            "UPDATE PROJECTS SET ?=? WHERE PROJECT_ID=?");
+
+            stmt.setString(1, parameter);
+            stmt.setString(2, value);
+            stmt.setInt(3, projectId);
+
+            int rows = stmt.executeUpdate();
+
+            stmt.close();
+            con.close();
+            return true;
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }
