@@ -22,7 +22,7 @@
                 <span class="shrink-btn">
                     <i class='bx bx-chevron-left'></i>
                 </span>
-                <img src="./img/logo.png" class="logo" alt="" />
+                <img src="../img/logo.png" class="logo" alt="" />
                 <h3 class="hide">Menu Demo</h3>
             </div>
 
@@ -78,30 +78,100 @@
                     </div>
                 </ul>
 
-                <h4 class="hide">Admin features</h4>
+                <h4 class="hide">#{login.getRole()} features</h4>
 
                 <ul>
-                    <li class="tooltip-element" data-tooltip="0">
-                        <a href="#" data-active="4">
-                            <div class="icon">
-                                <i class='bx bx-user-plus'></i>
-                                <i class='bx bxs-user-plus'></i>
-                            </div>
-                            <span class="link hide">Manage Users</span>
-                        </a>
-                    </li>
-                    <li class="tooltip-element" data-tooltip="1">
-                        <a href="#" data-active="5">
-                            <div class="icon">
-                                <i class='bx bx-group' ></i>
-                                <i class='bx bxs-group' ></i>
-                            </div>
-                            <span class="link hide">Manage Project Users</span>
-                        </a>
-                    </li>
+                    <h:panelGroup rendered='#{login.checkRole("Admin")}'>
+                        <li class="tooltip-element" data-tooltip="0">
+                            <a href="#" data-active="4">
+                                <div class="icon">
+                                    <i class='bx bx-user-plus'></i>
+                                    <i class='bx bxs-user-plus'></i>
+                                </div>
+                                <span class="link hide">Manage Users</span>
+                            </a>
+                        </li>
+                    </h:panelGroup>
+                    <h:panelGroup rendered='#{login.checkRole("Admin")}'>
+                        <li class="tooltip-element" data-tooltip="1">
+                            <a href="#" data-active="5">
+                                <div class="icon">
+                                    <i class='bx bx-group' ></i>
+                                    <i class='bx bxs-group' ></i>
+                                </div>
+                                <span class="link hide">All Projects</span>
+                            </a>
+                        </li>
+                    </h:panelGroup>
+                    <h:panelGroup rendered='#{login.checkRole("Project Manager")}'>
+                        <li class="tooltip-element" data-tooltip="0">
+                            <a href="#" data-active="4">
+                                <div class="icon">
+                                    <i class='bx bx-user-plus'></i>
+                                    <i class='bx bxs-user-plus'></i>
+                                </div>
+                                <span class="link hide">All Projects</span>
+                            </a>
+                        </li>
+                    </h:panelGroup>
+                    <h:panelGroup rendered='#{login.checkRole("Project Manager")}'>
+                        <li class="tooltip-element" data-tooltip="1">
+                            <a href="#" data-active="5">
+                                <div class="icon">
+                                    <i class='bx bx-group' ></i>
+                                    <i class='bx bxs-group' ></i>
+                                </div>
+                                <span class="link hide">Create Project</span>
+                            </a>
+                        </li>
+                    </h:panelGroup>
+                    <h:panelGroup rendered='#{login.checkRole("Developer")}'>
+                        <li class="tooltip-element" data-tooltip="0">
+                            <a href="#" data-active="4">
+                                <div class="icon">
+                                    <i class='bx bx-user-plus'></i>
+                                    <i class='bx bxs-user-plus'></i>
+                                </div>
+                                <span class="link hide">Development plan</span>
+                            </a>
+                        </li>
+                    </h:panelGroup>
+                    <h:panelGroup rendered='#{login.checkRole("Developer")}'>
+                        <li class="tooltip-element" data-tooltip="1">
+                            <a href="#" data-active="5">
+                                <div class="icon">
+                                    <i class='bx bx-group' ></i>
+                                    <i class='bx bxs-group' ></i>
+                                </div>
+                                <span class="link hide">Developer Chat</span>
+                            </a>
+                        </li>
+                    </h:panelGroup>
+                    <h:panelGroup rendered='#{login.checkRole("Submitter")}'>
+                        <li class="tooltip-element" data-tooltip="0">
+                            <a href="#" data-active="4">
+                                <div class="icon">
+                                    <i class='bx bx-user-plus'></i>
+                                    <i class='bx bxs-user-plus'></i>
+                                </div>
+                                <span class="link hide">Submit Bug/Error</span>
+                            </a>
+                        </li>
+                    </h:panelGroup>
+                    <h:panelGroup rendered='#{login.checkRole("Submitter")}'>
+                        <li class="tooltip-element" data-tooltip="1">
+                            <a href="#" data-active="5">
+                                <div class="icon">
+                                    <i class='bx bx-group' ></i>
+                                    <i class='bx bxs-group' ></i>
+                                </div>
+                                <span class="link hide">Request feature</span>
+                            </a>
+                        </li>
+                    </h:panelGroup>
                     <div class="tooltip">
-                        <span>Manage Users</span>
-                        <span>Manage Project Users</span>
+                        <span>#{login.roleFirstPage()}</span>
+                        <span>#{login.roleSecondPage()}</span>
                     </div>
                 </ul>
 
@@ -141,8 +211,8 @@
                     <div class="admin-profile hide">
                         <img src="https://t3.ftcdn.net/jpg/00/64/67/80/360_F_64678017_zUpiZFjj04cnLri7oADnyMH0XBYyQghG.jpg" alt="" />
                         <div class="admin-info">
-                            <h3>Max Joseph</h3>
-                            <h5>Admin</h5>
+                            <h3>#{login.getName()}</h3>
+                            <h5>#{login.getRole()}</h5>
                         </div>
                     </div>
 
@@ -151,7 +221,7 @@
                     </h:form>
                 </div>
                 <div class="tooltip">
-                    <span class="show">Max Wood</span>
+                    <span class="show">#{login.getName()}</span>
                     <span>Logout</span>
                 </div>
             </div>
@@ -193,10 +263,6 @@
                 });
             </script>
             <p>Main info, panels and stuff</p>
-
-            <h:form>
-                <h:commandLink value = "Log " action = "#{user.logOut()}" /> 
-            </h:form>
             <p />
             <a href="admin/adminPage.xhtml">Admin Page</a>
             <p />

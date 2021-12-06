@@ -82,4 +82,46 @@ public class LoginBean implements Serializable
             return "index?faces-redirect=true";
         }
     }
+    public boolean checkRole(String role){
+        if (this.role.equals(role)){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    public String roleFirstPage(){
+        if (this.role.equals("Admin")) {
+            return "Manage Users";
+        }
+        else if (this.role.equals("Project Manager")) {
+            return "All Projects";
+        }
+        else if (this.role.equals("Developer")) {
+            return "Development plan";
+        }
+        else if (this.role.equals("Submitter")) {
+            return "Submit Bug/Error";
+        }
+        else{
+            return "";
+        }
+    }
+    public String roleSecondPage(){
+        if (this.role.equals("Admin")) {
+            return "All Projects";
+        }
+        else if (this.role.equals("Project Manager")) {
+            return "Create Project";
+        }
+        else if (this.role.equals("Developer")) {
+            return "Developer Chat";
+        }
+        else if (this.role.equals("Submitter")) {
+            return "Request feature";
+        }
+        else{
+            return "";
+        }
+    }
 }
