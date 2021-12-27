@@ -34,7 +34,7 @@
             <div class="sidebar-links">
                 <ul>
                     <li class="tooltip-element" data-tooltip="0">
-                        <a href="main.xhtml" class="active" data-active="0">
+                        <a href="main.xhtml" data-active="0">
                             <div class="icon">
                                 <i class='bx bx-tachometer'></i>
                                 <i class='bx bxs-tachometer'></i>
@@ -52,7 +52,7 @@
                         </a>
                     </li>
                     <li class="tooltip-element" data-tooltip="2">
-                        <a href="myTickets.xhtml" data-active="2">
+                        <a href="myTickets.xhtml" class="active" data-active="2">
                             <div class="icon">
                                 <i class='bx bx-spreadsheet'></i>
                                 <i class='bx bxs-spreadsheet'></i>
@@ -228,10 +228,35 @@
 
 
         <main>
-            <h1>Dashboard</h1>
+            <h1>My Tickets</h1>
             <h2>Work in progress...</h2>
             <hr />
-            
+
+            <div id="userTable">
+                <h:dataTable styleClass="table" value="#{userBB.users}" var="u" >
+                    <h:column>
+                        <f:facet name="header">Id</f:facet>
+                        <h:outputText value="#{u.id}" />
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Name</f:facet>
+                        <h:outputText value="#{u.name}" />
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Email</f:facet>
+                        <h:outputText value="#{u.email}" />
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Role</f:facet>
+                        <h:outputText value="#{u.role}" />
+                    </h:column>
+                </h:dataTable>
+            </div>
+            <script>
+                $(document).ready(function () {
+                    $('.table').DataTable();
+                });
+            </script>
 
             <script src="main.js" />
         </main>

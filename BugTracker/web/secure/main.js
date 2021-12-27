@@ -23,19 +23,6 @@ search.addEventListener("click", () => {
     search.lastElementChild.focus();
 });
 
-function moveActiveTab() {
-    let topPosition = activeIndex * 58 + 2.5;
-
-    if (activeIndex > 3) {
-        topPosition += shortcuts.clientHeight;
-    }
-    if (activeIndex > 5) {
-        topPosition += shortcuts.clientHeight;
-    }
-
-    active_tab.style.top = `${topPosition}px`;
-}
-
 function changeLink() {
     sidebar_links.forEach((sideLink) => sideLink.classList.remove("active"));
     this.classList.add("active");
