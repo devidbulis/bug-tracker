@@ -232,31 +232,40 @@
             <h2>Work in progress...</h2>
             <hr />
 
-            <div id="userTable">
-                <h:dataTable styleClass="table" value="#{userBB.users}" var="u" >
-                    <h:column>
-                        <f:facet name="header">Id</f:facet>
-                        <h:outputText value="#{u.id}" />
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">Name</f:facet>
-                        <h:outputText value="#{u.name}" />
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">Email</f:facet>
-                        <h:outputText value="#{u.email}" />
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">Role</f:facet>
-                        <h:outputText value="#{u.role}" />
-                    </h:column>
-                </h:dataTable>
+            <div class="containerDiv">
+                <article class="container">
+                    <div class="containerHeader">
+                        <h1>My Tickets</h1>
+                    </div>
+                    <div class="containerContent">
+                        <div id="userTable">
+                            <h:dataTable styleClass="table" value="#{userBB.users}" var="u" >
+                                <h:column>
+                                    <f:facet name="header">Id</f:facet>
+                                    <h:outputText value="#{u.id}" />
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Name</f:facet>
+                                    <h:outputText value="#{u.name}" />
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Email</f:facet>
+                                    <h:outputText value="#{u.email}" />
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Role</f:facet>
+                                    <h:outputText value="#{u.role}" />
+                                </h:column>
+                            </h:dataTable>
+                        </div>
+                        <script>
+                            $(document).ready(function () {
+                                $('.table').DataTable();
+                            });
+                        </script>
+                    </div>
+                </article>
             </div>
-            <script>
-                $(document).ready(function () {
-                    $('.table').DataTable();
-                });
-            </script>
 
             <script src="main.js" />
         </main>

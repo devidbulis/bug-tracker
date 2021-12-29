@@ -1,9 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 
-#userTable{
-    max-width: 30%;
-}
-
 * {
     box-sizing: border-box;
     padding: 0;
@@ -389,4 +385,44 @@ body.shrink .admin-profile {
 
 body.shrink .tooltip {
     display: grid;
+}
+
+.containerDiv {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 1em; 
+}
+.container{
+    display: flex;
+    flex-flow: row wrap;
+    position: relative;
+    margin: 1em .5em 2em;
+    box-sizing: border-box;
+    width: calc(50% - 1em);
+    flex-grow: 1;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 25px;
+    margin-top: 0;
+    min-width: 600px;
+    min-height: 30em;
+    align-content: flex-start;
+}
+.containerHeader{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 80px;
+    background-color: var(--main-color-light);
+    color: #fff;
+    border-radius: 25px;
+}
+.containerHeader h1{
+    margin: 0;
+}
+.containerContent{
+    padding: 0.5em 1em 1em 1em;
+    width: 100%;
 }
